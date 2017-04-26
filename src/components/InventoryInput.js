@@ -33,15 +33,16 @@ export default class InventoryInput extends React.Component {
     this.state = {
       open:true,
       Inventory:this.props.Inventory,
-      idate:this.props.idate
+      idate:this.state.idate
     }
   }
 
     componentDidUpdate(){
+
     this.state = {
       open:this.props.open,
       Inventory:this.state.Inventory,
-      idate:this.props.idate
+      idate:this.state.idate
     }
   }
 
@@ -71,7 +72,7 @@ export default class InventoryInput extends React.Component {
       floatingLabelStyle ={{"color":" #fff"}}
       onChange={(e,nv) => this.setState({Inventory:nv})}
     /><br />
-          <DatePicker hintText="Inventory Time" hintStyle={{"color":" #fff"}} defaultDate={this.state.idate}/>
+          <DatePicker hintText="Inventory Time" hintStyle={{"color":" #fff"}} value={this.state.idate} onChange={(e,nv) => this.setState({idate:nv})}/>
         </Dialog>
       </div>
     );

@@ -61,6 +61,7 @@ class TankDetails extends Component {
 	}
   
   updateData=(obj)=>{
+    console.log(obj);
     this.setState({
       Inventory:obj.Inventory,
       idate:obj.idate
@@ -110,7 +111,7 @@ class TankDetails extends Component {
               </div>
               <div className="col-md-6 mb-5r text-uppercase">
                 <h2 className="text-muted2"><MdAccessTime className="align-top"/> Last Inventory</h2>
-                <p className="h1 ml-5">03/17/2017 04:08</p>
+                <p className="h1 ml-5">{this.state.idate.toLocaleDateString()}</p>
               </div>
               <div className="col-md-6 mb-5r text-uppercase">
                 <h2 className="text-muted2"><FaTruck className="align-top"/>Last Delivery</h2>

@@ -6,12 +6,13 @@ import { FaAngleRight, FaClockO, FaCircle, FaExclamationCircle} from 'react-icon
 import {TiLocationArrow}  from 'react-icons/lib/ti';
 
 const Tankcard = props => {
+	console.log(props);
 	return (
 		<div className="card mb-3">
 			<div className="row">
 				<div className="col-md-1">
 					<h1 className="text-center display-5 vertical-center mb-0">
-						<FaExclamationCircle className="warning" />
+						<FaExclamationCircle className={[props.set ? "success":"warning"]}/>
 						<FaCircle className="mt-4 success" />
 					</h1>
 				</div>

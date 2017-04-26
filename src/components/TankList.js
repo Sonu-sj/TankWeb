@@ -6,12 +6,13 @@ import { Link } from 'react-router';
 import Tankcard from './TankCard';
 
 const TankList = props => {
+	console.log(props);
 	return (
 		<div className="row tankList-container">
-			 {[...Array(7)].map((x, i) =>
+			 {props.data.map((d, i) =>
     			<div className="col-md-12" key={i}>
-				<Link to="/tank"> 
-					<Tankcard key={i} index = {i} idate = {"09/24/2016"} inventory="181560"/>
+				<Link to="/tank" onClick={()=>props.setFilled(i)}> 
+					<Tankcard key={i} index = {i} idate = {d.idate} inventory={d.inventory} set={d.set}/>
 				</Link>
 			</div>
   )}

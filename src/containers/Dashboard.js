@@ -30,12 +30,21 @@ class Dashboard extends Component {
         productList: this.getRandomProducts(),
       })
     }
+
+    const ListData = Array.from({length: 5}, (v, i) => {
+        return {
+          inventory:181560,
+          idate:"09/24/2016",
+          set:false
+        }
+      })
     this.currentSite = this.Sites[0];
     this.currentSiteIndex = 0;
     this.state = {
       title: "123456789",
       currentSite: this.currentSite,
-      currentSiteIndex: this.currentSiteIndex
+      currentSiteIndex: this.currentSiteIndex,
+      ListData:{data:ListData}
     }
   }
   getRandomProducts = () => {
@@ -60,6 +69,11 @@ class Dashboard extends Component {
       currentSiteIndex: this.currentSiteIndex
     })
   }
+
+  setFilled = (index) =>{
+    this.state.ListData.data[index].set = true;
+  }
+
   getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -67,7 +81,7 @@ class Dashboard extends Component {
     return (
       <div className="height-100 base-layout">
         <TankScroll Site={this.state.currentSite} changeSite={this.changeSite} />
-        <TankList {...this.props.data}/>
+        <TankList {...this.props.data} {...this.state.ListData} setFilled = {this.setFilled}/>
       </div>
     );
   }
